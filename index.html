@@ -6,12 +6,8 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 		<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-		<script src="https://raw.githubusercontent.com/n5ro/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-		<script>THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'</script>
-		<!-- one of these is enough; nft is for images,  the other markers. both handle location-based-->	
-		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+		<script src="https://raw.githack.com/n5ro/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-		<!-- -->
 	</head>
 
 	<body style="margin: 0; overflow: hidden;">
@@ -19,9 +15,19 @@
 		vr-mode-ui="enabled: false"
         	arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
         	renderer="antialias: true; alpha: true">
-		
-		<!-- we dont have camera, assets, items, etc. in here yet -->
 
+			<a-asset>
+				<a-asset-item id="gumball" 
+                src="assets/Gumball.gltf">
+			</a-asset>
+
+			<a-entity gltf-model="#gumball"
+				rotation="0 180 0" scale="1 1 1" position="0 0 0"
+				gps-entity-place="longitude: -79.41414; latitude: 43.68605;"/>
+
+
+
+			<a-camera gps-camera rotation-reader></a-camera>
 		</a-scene>
 	</body>
 </html>
