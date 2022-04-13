@@ -17,7 +17,7 @@
         	renderer="antialias: true; alpha: true">
 
 			<a-assets>
-<!-- 				<a-asset-item id="gumball" src="./assets/Gumball.gltf"> -->
+ 				<a-asset-item id="gumball" src="./assets/Gumball.gltf"></a-asset-item>
 				<a-asset-item id="obj" src="./assets/1.obj"></a-asset-item>
 				<a-asset-item id="mtl" src="./assets/1.mtl"></a-asset-item>				
 			</a-assets>
@@ -27,7 +27,8 @@
 				gps-entity-place="longitude: -79.41414; latitude: 43.68605;"/> -->
 
 			<a-marker id="custom-1" type="pattern" url="./assets/markers/pattern-Tree.patt">
-				<a-entity id="test" position="0.5 0.5 0" obj-model="obj: #obj; mtl: #mtl;"></a-entity>
+				<a-entity id="test1" position="0 0 0" gltf-model="#gumball"></a-entity>
+				<a-entity id="test2" position="0.5 0.5 0" obj-model="obj: #obj; mtl: #mtl;"></a-entity>
 			</a-marker>
 
 			<a-entity camera></a-entity>
