@@ -17,15 +17,17 @@
         	renderer="antialias: true; alpha: true">
 
 			<a-asset>
-				<a-asset-item id="gumball" src="./assets/Gumball.gltf">
+<!-- 				<a-asset-item id="gumball" src="./assets/Gumball.gltf"> -->
+				<a-asset-item id="obj" src="./assets/1.obj"/>
+				<a-asset-item id="mtl" src="./assets/1.mtl"/>				
 			</a-asset>
 
 <!-- 			<a-entity gltf-model="#gumball"
 				rotation="0 180 0" scale="1 1 1" position="0 0 0"
 				gps-entity-place="longitude: -79.41414; latitude: 43.68605;"/> -->
 
-			<a-marker id="custom-1" type="pattern" url="./assets/markers/pattern-G1-img-qr.patt">
-				<a-entity id="test" position="0.5 0.5 0" scale="0.05 0.05 0.05" gltf-model="#gumball"></a-entity>
+			<a-marker id="custom-1" type="pattern" url="./assets/markers/pattern-Tree.patt">
+				<a-entity id="test" position="0.5 0.5 0" scale="0.05 0.05 0.05" obj-model="obj:#obj; mtl:#mtl"></a-entity>
 			</a-marker>
 
 			<a-entity camera></a-entity>
