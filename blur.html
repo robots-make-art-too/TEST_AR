@@ -8,57 +8,6 @@
   <script src="js/aframe-look-at-component.min.js"></script>
   <script src="js/aframe-ar-nft.js"></script>
 
-<!--   <script>
-    const log = console.log;
-    window.onload = () => {
-
-      let scene = document.querySelector('a-scene');
-      let myGroup = document.getElementById('myGroup');
-
-      if (navigator.geolocation) {
-        //Dummy one, which will result in a working next statement.
-        navigator.geolocation.getCurrentPosition(function () { }, function () { }, {});
-
-        //The working next statement.
-        navigator.geolocation.getCurrentPosition(function (position) {
-
-          try {
-            let lat = position.coords.latitude;
-            let long = position.coords.longitude;
-            //let box = document.createElement('a-box');
-
-            alert(lat);
-            alert(long);
-
-            function createNode(node, attributes) {
-              const el = document.createElement(node);
-              for (let key in attributes) {
-                el.setAttribute(key, attributes[key]);
-              }
-              return el;
-            }
-
-            let box = createNode('a-box', {color: "blue", scale: "2 2 2" });
-
-            //gps-entity-place: "ciao", //`latitude: ${lat - 0.001}; longitude: ${long + 0.001}`
-
-
-            scene.appendChild(box);
-          }
-          catch (err) {
-            log(err.message);
-          }
-        }, function (e) {
-          //Your error handling here
-          log(err.message);
-        }, {
-            enableHighAccuracy: true
-          });
-      }
-    }
-
-  </script> -->
-
   <style>
   #arjs-video {
     filter: blur(8px);
@@ -101,14 +50,9 @@
 			<a-marker id="custom-3" type= "pattern" url="./assets/Markers/pattern-robot.patt">
 				<a-entity id="synced-gltf" position="0.5 0.5 0" scale="0.5 0.5 0.5" gltf-model="#synced"></a-entity>
 			</a-marker>
-		
-<!-- 		</a-scene>
-    <a-entity
-      id="myGroup">
-      <a-text id="welcome" value="Welcome" scale="75 75 75" color="#000000" position="-30 0 -150" look-at="[gps-camera]"></a-text>
-    </a-entity> gps-camera look-controls rotation-reader >-->
+
     <a-camera camera="fov: 35; far: 10000"> 
-    </a-camera><!-- gps-camera rotation-reader -->
+    </a-camera>
   </a-scene>
 
 </body>
