@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>GeoAR.js demo</title>
+  <title>test filter</title>
   <script src="js/aframe.min.js"></script>
   <script src="js/aframe-look-at-component.min.js"></script>
   <script src="js/aframe-ar-nft.js"></script>
 
-  <script>
+<!--   <script>
     const log = console.log;
     window.onload = () => {
 
@@ -57,7 +57,7 @@
       }
     }
 
-  </script>
+  </script> -->
 
   <style>
   #arjs-video {
@@ -80,12 +80,34 @@
     arjs="
       trackingMethod: best;
       debugUIEnabled: false;
-      sourceType: webcam; sourceWidth:40; sourceHeight:30;">
+      sourceType: webcam; sourceWidth:40; sourceHeight:30;"		
+    id="scene">
+
+			<a-assets>
+				<a-asset-item id="chained" src="../assets/Objects/hovercar.glb"></a-asset-item>
+				<a-asset-item id="linked" src="../assets/Objects/spaceship.glb"></a-asset-item>
+				<a-asset-item id="synced" src="../assets/Objects/Robot.glb"></a-asset-item>
+				
+			</a-assets>
+
+			<a-marker id="custom-1" type= "pattern" url="../assets/Markers/pattern-flying car.patt">
+				<a-entity id="chained-gltf" position="0.5 0.5 0" scale="0.5 0.5 0.5" gltf-model="#chained"></a-entity>
+			</a-marker>
+			
+			<a-marker id="custom-2" type= "pattern" url="../assets/Markers/pattern-spaceship.patt">
+				<a-entity id="linked-gltf" position="0.5 0.5 0" scale="0.5 0.5 0.5" gltf-model="#linked"></a-entity>
+			</a-marker>
+			
+			<a-marker id="custom-3" type= "pattern" url="../assets/Markers/pattern-robot.patt">
+				<a-entity id="synced-gltf" position="0.5 0.5 0" scale="0.5 0.5 0.5" gltf-model="#synced"></a-entity>
+			</a-marker>
+		
+<!-- 		</a-scene>
     <a-entity
       id="myGroup">
       <a-text id="welcome" value="Welcome" scale="75 75 75" color="#000000" position="-30 0 -150" look-at="[gps-camera]"></a-text>
-    </a-entity>
-    <a-camera camera="fov: 35; far: 10000" gps-camera look-controls rotation-reader >
+    </a-entity> gps-camera look-controls rotation-reader >-->
+    <a-camera camera="fov: 35; far: 10000"> 
     </a-camera><!-- gps-camera rotation-reader -->
   </a-scene>
 
