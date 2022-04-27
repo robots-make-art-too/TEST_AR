@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- <meta charset='utf-8'>
-		<meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta charset='utf-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<!-- 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
 
 		<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 <!-- 		<script type="text/javascript" src="ar-threex.js"></script> -->
 
 		<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
@@ -14,17 +14,67 @@
 <!-- 
 		<script type='text/javascript' src='./script.js'></script>
 		<link rel="stylesheet" type="text/css" href="./style.css"/> -->
-		  <style>
-		  #arjs-video {
-		    filter: blur(8px);
-		    -webkit-filter:blur(8px);
-		    /* transform: scale(1.8); *//* Might stretch CPU! */
-		    /* -webkit-transform: translate3d(0, 0, 0); */
-		    /* overflow: hidden; */
-		    /*
-		    margin: -5px -10px -10px -5px;*//* consider: stackoverflow.com/questions/12224320/defined-edges-with-css3-filter-blur */
+	<script>
+	    const log = console.log;
+	    window.onload = () => {
+
+	      let scene = document.querySelector('a-scene');
+	      let myGroup = document.getElementById('group');
+
+	      if (navigator.geolocation) {
+		//Dummy one, which will result in a working next statement.
+		navigator.geolocation.getCurrentPosition(function () { }, function () { }, {});
+
+		//The working next statement.
+		navigator.geolocation.getCurrentPosition(function (position) {
+
+		  try {
+		    let lat = position.coords.latitude;
+		    let long = position.coords.longitude;
+		    //let box = document.createElement('a-box');
+
+		    alert(lat);
+		    alert(long);
+
+		    function createNode(node, attributes) {
+		      const el = document.createElement(node);
+		      for (let key in attributes) {
+			el.setAttribute(key, attributes[key]);
+		      }
+		      return el;
+		    }
+
+		    let box = createNode('a-box', {color: "blue", scale: "2 2 2" });
+
+		    //gps-entity-place: "ciao", //`latitude: ${lat - 0.001}; longitude: ${long + 0.001}`
+
+
+		    scene.appendChild(box);
 		  }
-		  </style>
+		  catch (err) {
+		    log(err.message);
+		  }
+		}, function (e) {
+		  //Your error handling here
+		  log(err.message);
+		}, {
+		    enableHighAccuracy: true
+		  });
+	      }
+	    }
+
+	  </script>
+	  <style>
+		#arjs-video {
+		filter: blur(8px);
+	    	-webkit-filter:blur(8px);
+	    	/* transform: scale(1.8); *//* Might stretch CPU! */
+	    	/* -webkit-transform: translate3d(0, 0, 0); */
+	    	/* overflow: hidden; */
+	    	/*
+	    	margin: -5px -10px -10px -5px;*//* consider: stackoverflow.com/questions/12224320/defined-edges-with-css3-filter-blur */
+	  	}
+	  </style>
 	</head>
 
 	<body style="margin: 0; overflow: hidden;">
@@ -33,8 +83,13 @@
 
 		<a-scene
 			vr-mode-ui="enabled: false"
-			arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
-			renderer="antialias: true; alpha: true">
+			arjs="sourceType: webcam; 
+			      videoTexture: true; 
+			      trackingMethod: best; 
+			      debugUIEnabled: false; 
+			      sourceWidth: 40; sourceHeight: 30; displayWidth: 1280; displayHeight: 960;"
+			renderer="antialias: true; alpha: true"
+			embedded>
 
 			<a-assets>
 				<a-asset-item id="test" src="./assets/car/hovercar.gltf"/>
@@ -43,10 +98,11 @@
 			<a-entity gltf-model="#test" 
 				  rotation="0 180 0" scale="0.15 0.15 0.15"
 				  gps-entity-place="longitude: -78; latitude: 43;" 
-				  animation-mixer="loop: repeat"/>      
+				  nimation-mixer="loop: repeat"
+				  id="group"/>      
       
 			<!-- <a-camera gps-camera rotation-reader></a-camera> -->
-			<a-camera gps-camera="simulateLatitude: 43; simulateLongitude: -78; gpsMinDistance: 2;" position="0 3 0" rotation-reader></a-camera>
+			<a-camera camera="fov: 35; far: 10000;" gps-camera="simulateLatitude: 43; simulateLongitude: -78; gpsMinDistance: 2;" position="0 3 0" rotation-reader></a-camera>
 
 		</a-scene>
 
