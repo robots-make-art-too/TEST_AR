@@ -21,12 +21,14 @@
 
 			<!-- Using the asset management system. -->
 			<a-assets>
-				<video id="alpha" autoplay loop="true" src="assets/yoloyoda.mp4"></video>
+				<video id="alpha" autoplay loop="true" src="assets/yoloyoda.webm"></video>
 			</a-assets>
 
 			<a-marker-camera preset='hiro'>
-				<a-video id="vid" src="#alpha"
-								 rotation="-62.584 -3.936 4.509" scale="5 5 1">
+				<a-video
+					 id="vid" src="#alpha"
+					 rotation="-62.584 -3.936 4.509" scale="5 5 1">
+					
 					<video scale= "20 20 1" src="#source"></video>
 				</a-video>
 			</a-marker-camera>
