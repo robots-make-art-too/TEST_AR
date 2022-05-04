@@ -64,7 +64,7 @@
 	    }
 
 	  </script>
-	  <style>
+<!-- 	  <style>
 		#arjs-video {
 		filter: blur(8px);
 	    	-webkit-filter:blur(8px);
@@ -74,7 +74,7 @@
 	    	/*
 	    	margin: -5px -10px -10px -5px;*//* consider: stackoverflow.com/questions/12224320/defined-edges-with-css3-filter-blur */
 	  	}
-	  </style>
+	  </style> -->
 	</head>
 
 	<body style="margin: 0; overflow: hidden;">
@@ -92,11 +92,11 @@
 			embedded>
 
 			<a-assets>
-				<a-asset-item id="test" src="./assets/car/hovercar.gltf"/>
+				<a-asset-item id="maythe4th" src="./assets/car/yoloyoda.gif"/>
 			</a-assets>
 			
-			<a-entity gltf-model="#test" 
-				  rotation="0 180 0" scale="0.15 0.15 0.15"
+			<a-entity gltf-model="#maythe4th" 
+				  rotation="0 180 0" scale="0.15 0.15 0.15" position="0 2 -4"
 				  gps-entity-place="longitude: -78; latitude: 43;" 
 				  nimation-mixer="loop: repeat"
 				  id="group"/>      
