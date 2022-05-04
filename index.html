@@ -8,16 +8,28 @@
   <body>
     <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
     <a-scene >
-    <a-assets>
-        <video id="alpha" autoplay loop="true" src="assets/yoloyoda.webm"></video>
-    </a-assets>
+    
+        <!-- Using the asset management system. -->
+      <a-assets>
+          <video id="alpha" autoplay loop="true" src="assets/yoloyoda.webm"></video>
+      </a-assets>
 
-    <!-- Using the asset management system. -->
-   
-    <a-marker-camera preset='hiro'>
-           <a-video id = "vid"  rotation =  "-62.584 -3.936 4.509"  scale="5 5 1" src="#alpha">
-      <video scale= "20 20 1" src="#source"></video></a-video>
-    </a-marker-camera>
+<!--       <a-marker-camera preset='hiro'>
+        <a-video id = "vid"  rotation =  "-62.584 -3.936 4.509"  scale="5 5 1" src="#alpha">
+          <video scale= "20 20 1" src="#source"></video>
+        </a-video>
+      </a-marker-camera> -->
+
+          <a-video id="vid" gps-entity-place="longitude: -78; latitude: 43;"
+                   rotation="-62.584 -3.936 4.509" scale="5 5 1"
+                   src="#alpha">
+            <video scale="20 20 1" src="#source"></video>
+          </a-video>
+      
+      <!-- <a-camera gps-camera rotation-reader></a-camera> -->
+			<a-camera camera="fov: 35; far: 10000;" gps-camera="simulateLatitude: 43; simulateLongitude: -78; gpsMinDistance: 2;" position="0 3 0" rotation-reader></a-camera>
+ 
+      
     </a-scene>
   </body>
   
