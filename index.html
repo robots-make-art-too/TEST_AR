@@ -92,15 +92,17 @@
 			embedded>
 
 			<a-assets>
-				<a-asset-item id="maythe4th" src="./assets/yoloyoda.gif"/>
+				<img id="maythe4th" src="./assets/yoloyoda.gif"/>
 			</a-assets>
 			
-			<a-entity gltf-model="#maythe4th" 
+<!-- 			<a-entity gltf-model="#maythe4th" 
 				  rotation="0 180 0" scale="0.15 0.15 0.15" position="0 2 -4"
 				  gps-entity-place="longitude: -78; latitude: 43;" 
 				  nimation-mixer="loop: repeat"
-				  id="group"/>      
+				  id="group"/>       -->
       
+			<a-image src="#maythe4th"></a-image>
+			
 			<!-- <a-camera gps-camera rotation-reader></a-camera> -->
 			<a-camera camera="fov: 35; far: 10000;" gps-camera="simulateLatitude: 43; simulateLongitude: -78; gpsMinDistance: 2;" position="0 3 0" rotation-reader></a-camera>
 
