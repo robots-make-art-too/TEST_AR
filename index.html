@@ -14,22 +14,14 @@
           <video id="alpha" autoplay loop="true" src="assets/yoloyoda.webm"></video>
       </a-assets>
 
-<!--       <a-marker-camera preset='hiro'>
-        <a-video id = "vid"  rotation =  "-62.584 -3.936 4.509"  scale="5 5 1" src="#alpha">
-          <video scale= "20 20 1" src="#source"></video>
+      <a-marker-camera preset='hiro'>
+        <a-video id="vid" 
+		 rotation="-62.584 -3.936 4.509" scale="5 5 1" 
+		 src="#alpha">
+          <video scale= "20 20 1" src="#vid"></video>
         </a-video>
-      </a-marker-camera> -->
-
-          <a-video id="vid" gps-entity-place="longitude: -78; latitude: 43;"
-                   rotation="-62.584 -3.936 4.509" scale="5 5 1" position="0 3 -5"
-                   src="#alpha">
-            <video scale="20 20 1" src="#id"></video>
-          </a-video>
-      
-      <!-- <a-camera gps-camera rotation-reader></a-camera> -->
-	<a-camera camera="fov: 35; far: 10000;" gps-camera="simulateLatitude: 43; simulateLongitude: -78; gpsMinDistance: 2;" position="0 3 0" rotation-reader></a-camera>
- 
-      
+      </a-marker-camera>
+       
     </a-scene>
   </body>
   
