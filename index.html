@@ -27,7 +27,9 @@
 			renderer="antialias: true; alpha: true">
 
 			<a-assets>
-				<a-asset-item id="test" src="./assets/Robot.glb"/>
+				<a-asset-item id="test" src="./assets/car/hovercar.gltf"/>
+				<a-asset-item id="left" src="./left.gltf"/>
+				<a-asset-item id="right" src="./right.gltf"/>					
 			</a-assets>
 			
 			<a-entity gltf-model="#test" 
@@ -35,13 +37,11 @@
 				  gps-entity-place="longitude: -78; latitude: 43;" 
 				  animation-mixer="loop: repeat"/>      
       
+			<a-entity gltf-model="#left" id="leftHand" hand-tracking-controls="hand: left;"></a-entity>
+			<a-entity gltf-model="#right" id="rightHand" hand-tracking-controls="hand: right;"></a-entity>
+
 			<!-- <a-camera gps-camera rotation-reader></a-camera> -->
 			<a-camera gps-camera="simulateLatitude: 43; simulateLongitude: -78; gpsMinDistance: 3;" position="0 5 0" rotation-reader></a-camera>
-
-			<a-entity id="leftHand" hand-tracking-controls="hand: left;"></a-entity>
-			<a-entity id="rightHand" hand-tracking-controls="hand: right;"></a-entity>
-
-
 
 		</a-scene>
 
